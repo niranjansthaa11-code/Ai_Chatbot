@@ -15,7 +15,24 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+}
+.navbar{
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    display: flex;
+    padding: 0 32px;
+    height: 58px;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-sathiai {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 .main-chat-container{
     width: 400px;

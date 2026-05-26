@@ -1,7 +1,7 @@
 const chatBOx = document.getElementById("chat-box");
 const userInput = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
-const apiKey ="AIzaSyCxlUR8_Lr89duIxRuOC5RfeLj7fWSd2_8"
+const apiKey ="AIzaSyAwP33G6XrxP-bYR-Bi5qCilPEUcwjgzUw"
 
 window.onload =() =>{
     const savedchat = localStorage.getItem("guffhistory");
