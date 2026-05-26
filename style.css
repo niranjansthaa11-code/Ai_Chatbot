@@ -11,7 +11,7 @@
 }
 
 body{
-    background-image: linear-gradient(135deg, #f7b733, #fc4a1a);
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +30,7 @@ body{
     overflow: hidden;
 }
 header{
-    background-image: linear-gradient(beige);
+    background-image: linear-gradient(rgb(211, 211, 25));
     border:1px solid black;
     border-radius: 16px;
     padding: 14px;
@@ -60,7 +60,32 @@ header h1 {
     color: black;
     align-self: flex-end;
     margin-left: auto;
+}
+.message-bot{
+    background:white;
+    color: black;
+    align-self: flex-start;
+}
+.input-area{
+    display: flex;
+    padding: 10px;
+    background: linear-gradient(rgb(211, 211, 25));
+    border-radius: 14px;
+}
 
-
-
+#user-input{
+    flex:1;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 5px ;
+}
+#send-btn{
+    padding: 10px 15px;
+    margin-left: 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: red ;
+    outline: none;
+    border: 1px solid black;
+    transition: background 0.3s;
 }
