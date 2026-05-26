@@ -3,6 +3,18 @@ const userInput = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
 const apiKey ="AIzaSyCxlUR8_Lr89duIxRuOC5RfeLj7fWSd2_8"
 
+window.onload =() =>{
+    const savedchat = localStorage.getItem("guffhistory");
+    console.log({savedchat}); // this help us to prind the whatever thing that is foundedin console
+    if(savedchat){
+        chatBOx.innerHTML =savedchat;
+        chatBOx.scrollTop = chatBOx.scrollHeight;
+    }
+}
+
+
+
+
 // for message bubble 
 function addMessage(message,className){ // this is function and this only appears when the user calls it 
     const msgDiv = document.createElement("div");
@@ -13,6 +25,7 @@ function addMessage(message,className){ // this is function and this only appear
     chatBOx.scrollTop = chatBOx.scrollHeight; //scrolltop vaneko scrool ahiley kaha xw vnna khojya ho 
 }
 
+// for the process showing ot the user
 function showTyping(){
     const typingDiv = document.createElement("div");
     typingDiv.classList.add("message","message-bot");
@@ -22,13 +35,15 @@ function showTyping(){
     return typingDiv;
 }
 
+
+//for calling the api and get the value form it 
 async function getsathireply(userMessage){
 const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;    
 
     try {
         const response = await fetch(url,{
             method: "POST",
-            headers:{"Content-type": "application/json"},
+            headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
                 contents: [{parts:[{text: userMessage}]}]
             })
@@ -36,7 +51,19 @@ const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-
 
         const data = await response.json();
         console.log({data});
+
+
+        if(!response.ok){
+            console.error("Api Error",data);
+            return data?.error?.message || "Error fetching response"
+
+        }
+
+        const reply= data?.candidates?.[0]?.content?.parts?.[0]?.text; //here ?. means if exists and this is used instead of . cause it don;t lead to the crash of the code
+        return reply || "sorry i couldn't get any response";
+
     } catch (error) {
+        console.log("Error:",error);
         
     }
 
@@ -54,11 +81,10 @@ sendBtn.onclick = async() =>{
 
 
     const typingDiv = showTyping();
-    const sathiReply = await getsathireply();
+    const sathiReply = await getsathireply(message);
 
     typingDiv.remove();
     addMessage(sathiReply,"message-bot" );
-
     //yesley chahi local storage ma hamro message hold up grxw 
     localStorage.setItem("guffhistory",chatBOx.innerHTML);
 
