@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ai sathi</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="main-chat-container">
@@ -11,11 +12,14 @@
             <h1> AI Sathi</h1>
         </header>
         <div class="chat-box" id="chat-box">
-            <div class="message user message"> HI</div>
-            <div class="message bot message"> Hello user </div>
+            <div class="message message-user"> HI</div>
+            <div class="message message-bot"> Hello user </div>
         </div>
-        //for taking the input 
-        
+        <!-- for taking input from the user  -->
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="lets have a talk ?? ">
+            <button id="send-btn"> Send</button>
+        </div>
     </div>
     
 </body>
