@@ -40,9 +40,14 @@ body{
     gap: 10px;
 }
 .sathi-ai-logo{
-    width: 30px;
-    height: 40px;
+    width: 70px;
+    height: 50px;
+    display: flex;
     /* i have to put in the logo */
+}
+#logo{
+    background: #1f6feb;
+    border-radius: 60px;
 }
 .nav-title{
     color: #e6edf3;
@@ -208,9 +213,11 @@ header h1 {
     gap: 8px;
 }
 .footer-logo{
-    /* something */
-    width: 26px;
-    height: 25px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    background: #1f6feb;
+    border-radius: 20px;
 }
 .footer-name{
     color: #e6edf3;
