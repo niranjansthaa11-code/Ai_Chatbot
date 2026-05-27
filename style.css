@@ -15,6 +15,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 100vh;
 }
 .navbar{
@@ -29,10 +30,23 @@ body{
     top: 0;
     z-index: 100;
 }
+
 .nav-sathiai {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+.sathi-ai-logo{
+    width: 30px;
+    height: 40px;
+    /* i have to put in the logo */
+}
+.nav-title{
+    color: #e6edf3;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+
 }
 .main-chat-container{
     width: 400px;
