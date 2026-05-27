@@ -1,8 +1,16 @@
 const chatBOx = document.getElementById("chat-box");
 const userInput = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
-const apiKey ="AIzaSyATsQpGqyEDBGKOZOYEHZX6SBUw2TCfVQI"
+const apiKey ="my api"
+const Trynow= document.querySelector(".try");
+const freebtn =document.querySelector(".nav-btn");
+const mainchatContainer = document.querySelector(".main-chat-container");
 
+function showChat(){
+    mainchatContainer.style.display="flex";
+}
+Trynow.addEventListener("click",showChat);
+freebtn.addEventListener("click",showChat);
 window.onload =() =>{
     const savedchat = localStorage.getItem("guffhistory");
     console.log({savedchat}); // this help us to prind the whatever thing that is foundedin console
@@ -38,16 +46,26 @@ function showTyping(){
 
 //for calling the api and get the value form it 
 async function getsathireply(userMessage){
-const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;    
+const url = `https://ai.hackclub.com/proxy/v1/chat/completions`;    
 
     try {
         const response = await fetch(url,{
             method: "POST",
-            headers:{"Content-Type": "application/json"},
+            headers:{
+                "Content-Type": "application/json",
+                "Authorization":`Bearer ${apiKey}`
+            
+            },
             body: JSON.stringify({
-                contents: [{parts:[{text: userMessage}]}]
+                model: "qwen/qwen3-32b",
+                message:[
+                    {
+                        role:"user",
+                        content:userMessage
+                    }
+                ]
             })
-        })
+        });
 
         const data = await response.json();
         console.log({data});
@@ -58,12 +76,12 @@ const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-
             return data?.error?.message || "Error fetching response"
 
         }
-
-        const reply= data?.candidates?.[0]?.content?.parts?.[0]?.text; //here ?. means if exists and this is used instead of . cause it don;t lead to the crash of the code
+        const reply= data?.choices?.[0]?.message?.content; //here ?. means if exists and this is used instead of . cause it don;t lead to the crash of the code
         return reply || "sorry i couldn't get any response";
 
     } catch (error) {
         console.log("Error:",error);
+        return"Something went wrong";
         
     }
 
