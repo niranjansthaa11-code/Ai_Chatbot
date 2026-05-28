@@ -6,6 +6,7 @@ const freebtn =document.querySelector(".nav-btn");
 const mainchatContainer = document.querySelector(".main-chat-container");
 const Newchatbtn = document.querySelector(".newchat");
 const aboutuslink = document.getElementById("aboutlink");
+let chatHistory = []; // this acts a s  a array that holds the history
 
 //on about link clicnked
 aboutuslink.addEventListener("click",() => {
@@ -20,10 +21,12 @@ aboutuslink.addEventListener("click",() => {
 Newchatbtn.addEventListener("click",() => {
     localStorage.removeItem("guffhistory");
     chatBOx.innerHTML="";
+    chatHistory=[];
 });
 
 function showChat(){
     mainchatContainer.style.display="flex";
+    mainchatContainer.scrollIntoView({behavior:"smooth"});
 }
 Trynow.addEventListener("click",showChat);
 freebtn.addEventListener("click",showChat);
@@ -63,7 +66,8 @@ function showTyping(){
 //for calling the api and get the value form it 
 async function getsathireply(userMessage){
 const BACKEND_url = "https://ai-backend-two-theta.vercel.app/api/chat";    
-
+// for letting the history save 
+    chatHistory.push({role:"user",content: userMessage});
     try {
         const response = await fetch(BACKEND_url,{
             method: "POST",
@@ -72,12 +76,7 @@ const BACKEND_url = "https://ai-backend-two-theta.vercel.app/api/chat";
             
             },
             body: JSON.stringify({
-                messages:[
-                    {
-                        role:"user",
-                        content:userMessage
-                    }
-                ]
+                messages:chatHistory // this sends the whole string that is present in the array chathistory saved .
             })
         });
 
@@ -89,7 +88,9 @@ const BACKEND_url = "https://ai-backend-two-theta.vercel.app/api/chat";
             return data?.error?.message || "Error fetching response"
 
         }
-        const reply= data?.choices?.[0]?.message?.content; //here ?. means if exists and this is used instead of . cause it don;t lead to the crash of the code
+        const reply= data?.choices?.[0]?.message?.content;
+        //here ?. means if exists and this is used instead of . cause it don;t lead to the crash of the code
+        chatHistory.push({role: "assistant", content: reply}); 
         return reply || "sorry i couldn't get any response";
 
     } catch (error) {
