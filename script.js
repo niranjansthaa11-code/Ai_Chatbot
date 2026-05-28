@@ -1,7 +1,6 @@
 const chatBOx = document.getElementById("chat-box");
 const userInput = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
-const apiKey ="my api"
 const Trynow= document.querySelector(".try");
 const freebtn =document.querySelector(".nav-btn");
 const mainchatContainer = document.querySelector(".main-chat-container");
@@ -46,19 +45,17 @@ function showTyping(){
 
 //for calling the api and get the value form it 
 async function getsathireply(userMessage){
-const url = `https://ai.hackclub.com/proxy/v1/chat/completions`;    
+const BACKEND_url = "https://ai-backend-two-theta.vercel.app/api/chat";    
 
     try {
-        const response = await fetch(url,{
+        const response = await fetch(BACKEND_url,{
             method: "POST",
             headers:{
-                "Content-Type": "application/json",
-                "Authorization":`Bearer ${apiKey}`
+                "Content-Type": "application/json"
             
             },
             body: JSON.stringify({
-                model: "qwen/qwen3-32b",
-                message:[
+                messages:[
                     {
                         role:"user",
                         content:userMessage
@@ -68,11 +65,10 @@ const url = `https://ai.hackclub.com/proxy/v1/chat/completions`;
         });
 
         const data = await response.json();
-        console.log({data});
 
 
         if(!response.ok){
-            console.error("Api Error",data);
+            console.error("Server Error",data);
             return data?.error?.message || "Error fetching response"
 
         }
@@ -81,7 +77,7 @@ const url = `https://ai.hackclub.com/proxy/v1/chat/completions`;
 
     } catch (error) {
         console.log("Error:",error);
-        return"Something went wrong";
+        return"cannot connect to ai try again later ..";
         
     }
 
