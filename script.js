@@ -81,6 +81,8 @@ const BACKEND_url = "https://ai-backend-two-theta.vercel.app/api/chat";
         });
 
         const data = await response.json();
+        console.log("DATA:", JSON.stringify(data));
+
 
 
         if(!response.ok){
@@ -126,6 +128,7 @@ sendBtn.onclick = async() =>{
 userInput.addEventListener("keypress",(e) => {
     if(e.key==="Enter") sendBtn.click();
 })
+
 
 
 
