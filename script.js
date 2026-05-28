@@ -4,6 +4,23 @@ const sendBtn = document.getElementById("send-btn");
 const Trynow= document.querySelector(".try");
 const freebtn =document.querySelector(".nav-btn");
 const mainchatContainer = document.querySelector(".main-chat-container");
+const Newchatbtn = document.querySelector(".newchat");
+const aboutuslink = document.getElementById("aboutlink");
+
+//on about link clicnked
+aboutuslink.addEventListener("click",() => {
+    mainchatContainer.style.display="none";
+
+})
+
+
+
+
+// for new chat and deleting previous stored files
+Newchatbtn.addEventListener("click",() => {
+    localStorage.removeItem("guffhistory");
+    chatBOx.innerHTML="";
+});
 
 function showChat(){
     mainchatContainer.style.display="flex";
