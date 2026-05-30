@@ -20,14 +20,18 @@ A simple ai companion that talks to you like a usual friend there is no paywalls
     <li>AI Used: Hackclub Free Api</li>
 </ol>
 <hr>
-<h4>Project Photos</h4>
-
+<h4>Project Photos :</h4>
+<img src="https://raw.githubusercontent.com/niranjansthaa11-code/Ai_Chatbot/f5649cceee992165c5be9956ce71510755b5703d/images/screenshots/Screenshot%202026-05-30%20164701.png" width="600" alt="screenshot 1" />
+<img src="https://raw.githubusercontent.com/niranjansthaa11-code/Ai_Chatbot/f5649cceee992165c5be9956ce71510755b5703d/images/screenshots/Screenshot%202026-05-30%20164729.png" width="600" alt="screenshot 2" />
+<img src="https://raw.githubusercontent.com/niranjansthaa11-code/Ai_Chatbot/f5649cceee992165c5be9956ce71510755b5703d/images/screenshots/Screenshot%202026-05-30%20164742.png" width="600" alt="screenshot 3" />
+<img src="https://raw.githubusercontent.com/niranjansthaa11-code/Ai_Chatbot/f5649cceee992165c5be9956ce71510755b5703d/images/screenshots/Screenshot%202026-05-30%20164751.png" width="600" alt="screenshot 4" />
+<img src="https://raw.githubusercontent.com/niranjansthaa11-code/Ai_Chatbot/f5649cceee992165c5be9956ce71510755b5703d/images/screenshots/Screenshot%202026-05-30%20164800.png" width="600" alt="screenshot 5" />
 <hr>
 <h3>Developer :</h3>
 <p><strong>Niranjan Shrestha (NRXN)</strong></p>
 <ol>
     <li>GitHub — <a href="https://github.com/niranjansthaa11-code">niranjansthaa11-code</a></li>
-    <li>Email — niranjansthaa11@gmail.com</li>
+    <li>Email — <a href="mailto:niranjansthaa11@gmail.com">niranjansthaa11@gmail.com</a></li>
 </ol>
 <hr>
 Open source — free to use, learn from and build on.
